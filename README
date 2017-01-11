@@ -1,0 +1,25 @@
+1. This Project simulates the behaviour of data gathered from IOT devices.
+2. Random data is generated using Normal distribution. 
+3. Generated data is published on the Kafka Topic
+4. Consumer consumes the data, parses it and performs some operation. 
+5. The operation involved is to check if certain field of data is greater then the threshold value. 
+	If it is greater than the threshold value then write it in the file.  
+
+# to rebuild project:
+mvn clean install
+
+# producer syntax: 
+java -cp target/lab2-1.0-SNAPSHOT-jar-with-dependencies.jar edu.sjsu.cs185.Producer $topicName $pumpId
+
+# consumer syntax:
+java -cp target/lab2-1.0-SNAPSHOT-jar-with-dependencies.jar edu.sjsu.cs185.Consumer $topicName $vibrationThreshold $outputFile
+
+java -cp target/lab2-1.0-SNAPSHOT-jar-with-dependencies.jar edu.sjsu.cs185.Producer test 100
+
+
+java -cp target/lab2-1.0-SNAPSHOT-jar-with-dependencies.jar edu.sjsu.cs185.Consumer test 0.25 /tmp/blob
+
+java -cp target/lab2-1.0-SNAPSHOT-jar-with-dependencies.jar edu.sjsu.cs185.Producer test3 101
+
+
+java -cp target/lab2-1.0-SNAPSHOT-jar-with-dependencies.jar edu.sjsu.cs185.Consumer test3 0.25 /tmp/blob
